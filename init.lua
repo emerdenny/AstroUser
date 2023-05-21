@@ -17,24 +17,15 @@ return {
     },
   },
 
-  -- Set colorscheme to use
-  -- colorscheme = "astrodark",
-  -- colorscheme = "catppuccin",
-  -- plugins = {
-  --   {
-  --     "catppuccin/nvim",
-  --     as = "catppuccin",
-  --     config = function()
-  --       require("catppuccin").setup({
-  --         flavour = "macchiato"
-  --       })
-  --     end
-  --   },
-  -- },
-
   -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
   diagnostics = {
-    virtual_text = true,
+    -- virtual_text = true,
+    virtual_text = {
+      source = "always",
+    },
+    float = {
+      source = "always",
+    },
     underline = true,
   },
 
@@ -63,6 +54,16 @@ return {
     servers = {
       -- "pyright"
     },
+    -- NOTE: the below settings work partially, but best to pass tag into nvim like following
+    --       GOFLAGS="-tags=e2e" nvim
+    -- config = {
+    --   gopls = {
+    --     env = {GOFLAGS="-tags=e2e"},
+    --     setup = {
+    --       build_flags = {"e2e"},
+    --     },
+    --   },
+    -- },
   },
 
   -- Configure require("lazy").setup() options
